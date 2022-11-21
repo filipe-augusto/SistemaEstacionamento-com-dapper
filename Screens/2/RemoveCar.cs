@@ -30,7 +30,7 @@ namespace SistemaEstacionamento.Screens._2
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("     3 ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("- Todos os Carros");
+            Console.Write("- Ver Carros");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("     4 ");
@@ -48,12 +48,12 @@ namespace SistemaEstacionamento.Screens._2
                     //MenuTagScreen.Load();
                     break;
                 case 2:
-                    BucarPorCarro();
+                    BuscarPorPessoa();
                     Load();
                     //MenuTagScreen.Load();
                     break;
                 case 3:
-                    BucarPorCarro();
+                    TodosOsCarros();
                     Load();
                     //MenuTagScreen.Load();
                     break;
@@ -63,15 +63,80 @@ namespace SistemaEstacionamento.Screens._2
 
         public static void BucarPorCarro()
         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("   Remover carro");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("Digite a placa do carro");
+            var placa = Console.ReadLine().ToString();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            if (placa != null)
+            {
 
+            }
         }
         public static void BuscarPorPessoa()
         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("   Remover carro ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("Digite o nome da pessoa");
+            var placa = Console.ReadLine().ToString();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            if (placa != null)
+            {
 
+            }
         }
         public static void TodosOsCarros()
         {
 
+        }
+
+        public void ConfirmaRetiradaDoVeiculo()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("   Remover carro ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("Confirma a retirada do veiculo? (s=SIM, n= não)");
+            var resp = Console.ReadLine();
+
+            if (resp.ToUpper() == "S")
+            {
+                RetirarVeiculo();
+            }
+            else
+            {
+                Load();
+            }
+        }
+
+        public void RetirarVeiculo()
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Veiculo retirado1");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("...clique para continuar");
+            Console.ReadLine();
+            Load();
         }
 
 
