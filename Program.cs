@@ -62,7 +62,7 @@ namespace SistemaEstacionamento
 
             switch (option)
             {
-                case 4:
+                case 1:
                     //MenuTagScreen.Load();
                     break;
                 default: Load(); break;
