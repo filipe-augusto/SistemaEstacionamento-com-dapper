@@ -13,12 +13,4 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Screens\Estacionados\" />
-    <Folder Include="Screens\Adicionar\" />
-    <Folder Include="Screens\VincularCarroClient\" />
-    <Folder Include="Screens\Relatorios\" />
-    <Folder Include="Screens\Retirar\" />
-  </ItemGroup>
-
 </Project>
