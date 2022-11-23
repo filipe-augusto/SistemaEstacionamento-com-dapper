@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using SistemaEstacionamento.Db;
+using SistemaEstacionamento.Screens;
 
 namespace SistemaEstacionamento
 {
@@ -8,11 +9,11 @@ namespace SistemaEstacionamento
     public class Program
     {
         private const string connectionString = @"Server=192.168.99.100\sqlserver,1433;Database=Parking;User ID=sa; Password=1q2w3e4r@#$; TrustServerCertificate=True";
-        const string conectStringJob = @"Server=IM-BRS-NT1071\MSSQLSERVER01; Integrated Security=SSPI; Database=Parking;";
+        const string conectStringJob = @"Server=IM-BRS-NT1071\MSSQLSERVER01; Integrated Security=SSPI; Database=Parking; TrustServerCertificate=True";
 
         public static void Main(string[] args)
         {
-            Database.Connection = new SqlConnection(connectionString);
+            Database.Connection = new SqlConnection(conectStringJob);
             Database.Connection.Open();
 
             Load();
@@ -62,7 +63,9 @@ namespace SistemaEstacionamento
 
             switch (option)
             {
-                case 4:
+                case 1:
+                    MenuListCar.Load();
+                    Load();
                     //MenuTagScreen.Load();
                     break;
                 default: Load(); break;
