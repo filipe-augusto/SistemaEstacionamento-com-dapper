@@ -13,13 +13,14 @@ namespace SistemaEstacionamento
 
         public static void Main(string[] args)
         {
-            Database.Connection = new SqlConnection(conectStringJob);
-            Database.Connection.Open();
+            CreateDB.MonstarBanco();
+            //Database.Connection = new SqlConnection(conectStringJob);
+            //Database.Connection.Open();
 
-            Load();
+            //Load();
 
-            Console.ReadKey();
-            Database.Connection.Close();
+            //Console.ReadKey();
+            //Database.Connection.Close();
         }
         private static void Load()
         {
