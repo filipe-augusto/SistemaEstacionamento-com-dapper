@@ -16,7 +16,7 @@ namespace SistemaEstacionamento.Repositories
         : base(connection)
           => _conection = connection;
 
-      //  public List
+      
 
 
     }

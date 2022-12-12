@@ -3,6 +3,7 @@ using System;
 using SistemaEstacionamento.Db;
 using SistemaEstacionamento.Screens;
 using SistemaEstacionamento.Screens._3;
+using SistemaEstacionamento.Screens._2;
 
 namespace SistemaEstacionamento
 {
@@ -71,7 +72,7 @@ namespace SistemaEstacionamento
                  
                     break;
                 case 2:
-                    MenuListCar.Load();
+                    RemoveCar.Load();
                     Load();
                    
                     break;

@@ -4,10 +4,10 @@ using Microsoft.VisualBasic;
 namespace SistemaEstacionamento.Models
 {
     [Table("[Scheduling]")]
-    public class Scheduling
+    public class SchedulingModelView
     {
 
-       public Scheduling()
+       public SchedulingModelView()
         {
             Value = 0;
             AmountMinutes = 0;
@@ -24,7 +24,7 @@ namespace SistemaEstacionamento.Models
         public int IdClient { get; set; }
         public decimal Value { get; set; }
         public int AmountMinutes { get; set; }
-
-
+        public virtual Car Car { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

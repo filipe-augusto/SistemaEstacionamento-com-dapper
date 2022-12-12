@@ -26,7 +26,8 @@ namespace SistemaEstacionamento.Screens
             {
                 foreach (var car in cars)
                 {
-             Console.WriteLine($"[{car.Id}].[{car.LicensePlate}].[{car.Color}].[{car.Modelo}]");
+                 Console.WriteLine($"[{car.Id}].[{car.LicensePlate}].[{car.Color}]" +
+                     $".[{car.Modelo}]");
                 }
             }
             Console.WriteLine("---------------------------------------------------");
@@ -43,9 +44,9 @@ namespace SistemaEstacionamento.Screens
 
             switch (option)
             {
-                case 1:
-                   MenuListCar.Load();
-                  //  Load();
+                    case 1:
+                    MenuListCar.Load();
+                    //Load();
                     //MenuTagScreen.Load();
                     break;
                 default: Load(); break;

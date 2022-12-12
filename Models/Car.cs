@@ -17,5 +17,7 @@ namespace SistemaEstacionamento.Models
         public string Color { get; set; }
 
         public string LicensePlate { get; set; }
+
+    
     }
 }

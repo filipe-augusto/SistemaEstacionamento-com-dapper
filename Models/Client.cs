@@ -26,6 +26,6 @@ namespace SistemaEstacionamento.Models
 
         public bool Special { get; set; }
 
-       // public List<Car> Cars { get; set; }
+
     }
 }
