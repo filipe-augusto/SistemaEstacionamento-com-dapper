@@ -2,6 +2,7 @@
 using System;
 using SistemaEstacionamento.Db;
 using SistemaEstacionamento.Screens;
+using SistemaEstacionamento.Screens._3;
 
 namespace SistemaEstacionamento
 {
@@ -13,14 +14,14 @@ namespace SistemaEstacionamento
 
         public static void Main(string[] args)
         {
-            CreateDB.MonstarBanco();
-            //Database.Connection = new SqlConnection(conectStringJob);
-            //Database.Connection.Open();
+            //CreateDB.MonstarBanco();
+            Database.Connection = new SqlConnection(conectStringJob);
+            Database.Connection.Open();
 
-            //Load();
+            Load();
 
-            //Console.ReadKey();
-            //Database.Connection.Close();
+            Console.ReadKey();
+            Database.Connection.Close();
         }
         private static void Load()
         {
@@ -67,7 +68,17 @@ namespace SistemaEstacionamento
                 case 1:
                     MenuListCar.Load();
                     Load();
-                    //MenuTagScreen.Load();
+                 
+                    break;
+                case 2:
+                    MenuListCar.Load();
+                    Load();
+                   
+                    break;
+                case 3:
+                    AdicionarVaga.Load();
+                    Load();
+                  
                     break;
                 default: Load(); break;
             }

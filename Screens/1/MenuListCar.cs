@@ -21,7 +21,6 @@ namespace SistemaEstacionamento.Screens
             Console.ForegroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("---------------------------------------------------");
-            Console.ForegroundColor = ConsoleColor.White;
             var cars = ListaDeCarros();
             if (cars.Count() >= 1)
             {
@@ -30,9 +29,27 @@ namespace SistemaEstacionamento.Screens
              Console.WriteLine($"[{car.Id}].[{car.LicensePlate}].[{car.Color}].[{car.Modelo}]");
                 }
             }
-        
-           
+            Console.WriteLine("---------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("O que deseja fazer?");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("     1 ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("- Voltar");
+            Console.WriteLine();
+
             var option = short.Parse(Console.ReadLine()!);
+
+            switch (option)
+            {
+                case 1:
+                   MenuListCar.Load();
+                  //  Load();
+                    //MenuTagScreen.Load();
+                    break;
+                default: Load(); break;
+            }
             return;
         }
 
