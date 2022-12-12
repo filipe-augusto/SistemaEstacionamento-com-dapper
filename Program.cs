@@ -15,6 +15,7 @@ namespace SistemaEstacionamento
 
         public static void Main(string[] args)
         {
+          //  MapperConfiguration
             //CreateDB.MonstarBanco();
             Database.Connection = new SqlConnection(conectStringJob);
             Database.Connection.Open();

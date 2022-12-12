@@ -116,7 +116,9 @@ namespace SistemaEstacionamento.Screens._2
             {
                 try
                 {
-
+                    Scheduling agendamento = new Scheduling();
+                    //agendamento.id
+                    //RetirarVeiculo()
                     return true;
                 }
                 catch 
@@ -131,45 +133,42 @@ namespace SistemaEstacionamento.Screens._2
         }
 
 
-        public void ConfirmaRetiradaDoVeiculo()
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("   Remover carro ");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("Confirma a retirada do veiculo? (S=SIM, N= não)");
-            var resp = Console.ReadLine()??"N";
+        //public void ConfirmaRetiradaDoVeiculo()
+        //{
+        //    Console.Clear();
+        //    Console.ForegroundColor = ConsoleColor.Blue;
+        //    Console.WriteLine("   Remover carro ");
+        //    Console.ForegroundColor = ConsoleColor.White;
+        //    Console.WriteLine("---------------------------------------------------");
+        //    Console.WriteLine("Confirma a retirada do veiculo? (S=SIM, N= não)");
+        //    var resp = Console.ReadLine()??"N";
 
-            if (resp.ToUpper() == "S")
-            {
-                RetirarVeiculo();
-            }
-            else
-            {
-                Load();
-            }
-        }
+        //    if (resp.ToUpper() == "S")
+        //    {
+        //        RetirarVeiculo();
+        //    }
+        //    else
+        //    {
+        //        Load();
+        //    }
+        //}
 
-        public void RetirarVeiculo()
+        public bool RetirarVeiculo(Scheduling scheduling)
         {
             try
             {
+                var repository = new Repository<Scheduling>(Database.Connection);
+                repository.Update(scheduling);
 
+                return true;
             }
-            catch (Exception ex)
+            catch 
             {
 
-                throw;
+                return false;
             }
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Veiculo retirado1");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("...clique para continuar");
-            Console.ReadLine();
-            Load();
+
+           // Load();
         }
         public static void BucarPorCarro()
         {
@@ -204,6 +203,6 @@ namespace SistemaEstacionamento.Screens._2
             }
         }
 
-
+   
     }
 }
