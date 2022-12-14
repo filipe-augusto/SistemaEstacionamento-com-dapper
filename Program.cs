@@ -51,15 +51,15 @@ namespace SistemaEstacionamento
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("- Adicionar carro");
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("     4 ");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("- Relatórios");
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("     5 ");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("- Vincular Carro/Cliente");
+            //Console.ForegroundColor = ConsoleColor.Blue;
+            //Console.Write("     4 ");
+            //Console.ForegroundColor = ConsoleColor.White;
+            //Console.Write("- Relatórios");
+            //Console.WriteLine();
+            //Console.ForegroundColor = ConsoleColor.Blue;
+            //Console.Write("     5 ");
+            //Console.ForegroundColor = ConsoleColor.White;
+            //Console.Write("- Vincular Carro/Cliente");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
@@ -80,7 +80,6 @@ namespace SistemaEstacionamento
                 case 3:
                     AdicionarVaga.Load();
                     Load();
-                  
                     break;
                 default: Load(); break;
             }

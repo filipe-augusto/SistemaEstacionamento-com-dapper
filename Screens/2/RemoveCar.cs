@@ -18,20 +18,35 @@ namespace SistemaEstacionamento.Screens._2
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("   Remover carro");
             Console.ForegroundColor = ConsoleColor.White;
- 
+
             Console.WriteLine("--------------------------------------------------");
             var agentoEscolhido = TodosOsCarros();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Clear();
             Console.WriteLine("Carro escolhido");
             Console.WriteLine("--------------------------------------------------");
-           var retirou = ConfirmaRetiradaVeiculo(agentoEscolhido);
-
+            var retirou = ConfirmaRetiradaVeiculo(agentoEscolhido);
+      
             if (retirou)
             {
-                Console.WriteLine($"Registrado a retirada do Carro {agentoEscolhido.Car.Modelo} do dono(a) " +
-                    $"{agentoEscolhido.Client.Name} com sucesso!");
+                Console.Clear();
+                Console.Write($"Registrado a retirada do Carro");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write($" {agentoEscolhido.Car.Modelo}");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(" do dono(a)");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write($"{agentoEscolhido.Client.Name}");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" com sucesso!");
 
+            }
+            else
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Nenhum carro encontrado com esse id.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
@@ -91,6 +106,10 @@ namespace SistemaEstacionamento.Screens._2
 
         public static bool ConfirmaRetiradaVeiculo(SchedulingModelView dadosRetirada)
         {
+            try
+            {
+
+
             Console.WriteLine($"Cliente: {dadosRetirada.Client.Name}");
             Console.WriteLine($"Documento: {dadosRetirada.Client.Document}");
             Console.WriteLine($"Carro: {dadosRetirada.Car.Modelo}-{dadosRetirada.Car.Color}");
@@ -110,18 +129,37 @@ namespace SistemaEstacionamento.Screens._2
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("Confirma a retirada do veículo? [S = Sim], [N = Não]");
             Console.ForegroundColor = ConsoleColor.White;
-            var resp = Console.ReadLine()??"N";
+            var resp = Console.ReadLine() ?? "N";
 
             if (resp.ToUpper() == "S")
             {
                 try
                 {
                     Scheduling agendamento = new Scheduling();
+                    agendamento.StartDate = dadosRetirada.StartDate;
+                    agendamento.Id = dadosRetirada.Id;
+                    agendamento.IdCar = dadosRetirada.IdCar;
+                    agendamento.IdClient = dadosRetirada.IdClient;
+                    agendamento.Value = dadosRetirada.Value;
+                    agendamento.AmountMinutes = dadosRetirada.AmountMinutes;
+                    agendamento.Finished = true;
+                    agendamento.EndDate = dadosRetirada.EndDate;
+                    agendamento.Special = dadosRetirada.Special;
                     //agendamento.id
-                    //RetirarVeiculo()
-                    return true;
+                    var retirouVeiculo = RetirarVeiculo(agendamento);
+
+                    if (retirouVeiculo)
+                    {
+                        Console.WriteLine();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
                 }
-                catch 
+                catch
                 {
                 }
                 return false;
@@ -130,30 +168,15 @@ namespace SistemaEstacionamento.Screens._2
             {
                 return false;
             }
+            }
+            catch 
+            {
+                return false;
+            }
         }
 
 
-        //public void ConfirmaRetiradaDoVeiculo()
-        //{
-        //    Console.Clear();
-        //    Console.ForegroundColor = ConsoleColor.Blue;
-        //    Console.WriteLine("   Remover carro ");
-        //    Console.ForegroundColor = ConsoleColor.White;
-        //    Console.WriteLine("---------------------------------------------------");
-        //    Console.WriteLine("Confirma a retirada do veiculo? (S=SIM, N= não)");
-        //    var resp = Console.ReadLine()??"N";
-
-        //    if (resp.ToUpper() == "S")
-        //    {
-        //        RetirarVeiculo();
-        //    }
-        //    else
-        //    {
-        //        Load();
-        //    }
-        //}
-
-        public bool RetirarVeiculo(Scheduling scheduling)
+        public static bool RetirarVeiculo(Scheduling scheduling)
         {
             try
             {
@@ -162,13 +185,12 @@ namespace SistemaEstacionamento.Screens._2
 
                 return true;
             }
-            catch 
+            catch
             {
-
                 return false;
             }
 
-           // Load();
+            // Load();
         }
         public static void BucarPorCarro()
         {
@@ -203,6 +225,6 @@ namespace SistemaEstacionamento.Screens._2
             }
         }
 
-   
+
     }
 }

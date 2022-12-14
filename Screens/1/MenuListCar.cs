@@ -21,21 +21,22 @@ namespace SistemaEstacionamento.Screens
             Console.ForegroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("---------------------------------------------------");
-            var cars = ListaDeCarros();
-            if (cars.Count() >= 1)
+            var repository = new SchedulingRepository(Database.Connection);
+            var lista = repository.CarrosEstacionados(Database.Connection);
+
+            foreach (var item in lista)
             {
-                foreach (var car in cars)
-                {
-                 Console.WriteLine($"[{car.Id}].[{car.LicensePlate}].[{car.Color}]" +
-                     $".[{car.Modelo}]");
-                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(item.Id);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" - [DATA:{item.StartDate}]-[NOME:{item.Client.Name}]-[MODELO:{item.Car.Modelo}]-[PLACA:{item.Car.LicensePlate}]");
             }
             Console.WriteLine("---------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("     1 ");
+            Console.Write("     0 ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("- Voltar");
             Console.WriteLine();
@@ -44,12 +45,12 @@ namespace SistemaEstacionamento.Screens
 
             switch (option)
             {
-                    case 1:
-                    MenuListCar.Load();
-                    //Load();
-                    //MenuTagScreen.Load();
+                    case 0:
+
+                    return;
+                  
+                default: Load();
                     break;
-                default: Load(); break;
             }
             return;
         }

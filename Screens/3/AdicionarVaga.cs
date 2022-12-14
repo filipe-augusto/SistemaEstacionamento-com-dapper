@@ -77,7 +77,7 @@ namespace SistemaEstacionamento.Screens._3
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("---------------------------------------------------");
-                Console.WriteLine($"Cliente {client.Id} adicionado com sucesso!");
+                Console.WriteLine($"Cliente {client.Name} do carro {car.Modelo} adicionado com sucesso!");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Digite algo para continuar...");
